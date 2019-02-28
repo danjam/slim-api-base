@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+// copy this file to settings.php
+
+return [
+    'settings' => [
+        'displayErrorDetails'               => ENV === 'dev',
+        'determineRouteBeforeAppMiddleware' => false,
+        'logger' => [
+            'api_log_path'                  => APP_ROOT . '/logs/api.log',
+        ],
+        'doctrine' => [
+            'dev_mode'                      => ENV === 'dev',
+            'cache_dir'                     => APP_ROOT . '/cache/doctrine',
+            'metadata_dirs'                 => [APP_ROOT . '/src/Domain'],
+            'connection' => [
+                'charset'                   => 'utf8',
+                'dbname'                    => 'database',
+                'driver'                    => 'pdo_mysql',
+                'host'                      => 'localhost',
+                'password'                  => '',
+                'port'                      => 3306,
+                'user'                      => 'root',
+            ],
+            'migrations' => [
+                'name'                      => 'SlimApiBase',
+                'migrations_namespace'      => 'SlimApiBase\Migrations',
+                'table_name'                => 'migration_versions',
+                'column_name'               => 'version',
+                'column_length'             => 14,
+                'executed_at_column_name'   => 'executed_at',
+                'migrations_directory'      => APP_ROOT . '/migrations',
+                'all_or_nothing'            => true,
+            ],
+        ]
+    ]
+];

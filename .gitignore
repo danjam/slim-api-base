@@ -1,0 +1,15 @@
+.idea/
+vendor/
+composer.lock
+
+cache/doctrine/*
+!cache/doctrine/.gitkeep
+
+config/*
+!config/settings.php.dist
+
+logs/*
+!logs/.gitkeep
+
+migrations/*
+!migrations/.gitkeep
